@@ -1,12 +1,12 @@
 ---
-layout: none
+layout: null
 ---
 {
     "version": "https://jsonfeed.org/version/1",
     "title": {{ site.name | smartify | jsonify }},
     {% if site.description %}"description": {{ site.description | smartify | jsonify }},{% endif %}
-    "home_page_url": "{{ site.url }}/",
-    "feed_url": "{{ site.url }}/feed.json",
+    "home_page_url": "{{ site.url }}{{ site.baseurl }}/",
+    "feed_url": "{{ site.url }}{{ site.baseurl }}/feed.json",
     {% comment %}"icon": "{{ site.url }}/static/icons/hotlink-ok/identicon.png",{% endcomment %}
     {% comment %}"favicon": "",{% endcomment %}
     "expired": false,
@@ -16,7 +16,7 @@ layout: none
             "id": "{{ post.id }}",
             "title": {{ post.title | smartify | jsonify }},
             "content_html": {{ post.content | jsonify }},
-            "url": "{{ site.url }}{{ post.url }}",
+            "url": "{{ site.url }}{{ site.baseurl }}{{ post.url }}",
             "summary": {{ post.excerpt | smartify | jsonify }},
             "date_published": "{{ post.date }}"
             {% comment %}"author": "{{ post.author }}"{% endcomment %}
